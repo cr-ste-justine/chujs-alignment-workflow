@@ -25,7 +25,6 @@ inputs:
   contamination_sites_bed: File
   contamination_sites_mu: File
   contamination_sites_ud: File
-  wgs_calling_interval_list: File
   intervals_bed: File
   wgs_evaluation_interval_list: File
   genome: string
@@ -37,8 +36,8 @@ outputs:
   bqsr_report: {type: File, outputSource: gatk_gatherbqsrreports/output}
   gvcf_calling_metrics: {type: 'File[]', outputSource: picard_collectgvcfcallingmetrics/output}
   aggregation_metrics: {type: 'File[]', outputSource: picard_collectaggregationmetrics/output}
-  wes_metrics: {type: File, outputSource: picard_collecthsmetrics/output}
-  annotated_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
+#  wes_metrics: {type: File, outputSource: picard_collecthsmetrics/output}
+  annotated_g_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
 
 steps:
   bwa_mem:
@@ -66,11 +65,24 @@ steps:
       base_file_name: output_basename
     out: [sorted_bam]
 
-  python_createsequencegroups:
-    run: ../tools/python_createsequencegroups.cwl
+#  python_createsequencegroups:
+#    run: ../tools/python_createsequencegroups.cwl
+#    in:
+#      ref_dict: reference_dict
+#    out: [sequence_intervals, sequence_intervals_with_unmapped]
+
+  picard_bedtointervallist:
+    run: ../tools/picard_bedToIntervallist.cwl
     in:
-      ref_dict: reference_dict
-    out: [sequence_intervals, sequence_intervals_with_unmapped]
+      intervals_bed: intervals_bed
+      reference_dict: reference_dict
+    out: [output]
+
+  picard_intervallisttools:
+    run: ../tools/picard_intervallisttools.cwl
+    in:
+      interval_list: picard_bedtointervallist/output
+    out: [output]
 
   gatk_baserecalibrator:
     run: ../tools/gatk_baserecalibrator.cwl
@@ -78,7 +90,7 @@ steps:
       input_bam: sambamba_sort/sorted_bam
       knownsites: knownsites
       reference: indexed_reference_fasta
-      sequence_interval: python_createsequencegroups/sequence_intervals
+      sequence_interval: picard_intervallisttools/output
     scatter: [sequence_interval]
     out: [output]
 
@@ -95,7 +107,7 @@ steps:
       bqsr_report: gatk_gatherbqsrreports/output
       input_bam: sambamba_sort/sorted_bam
       reference: indexed_reference_fasta
-      sequence_interval: python_createsequencegroups/sequence_intervals_with_unmapped
+      sequence_interval: picard_intervallisttools/output
     scatter: [sequence_interval]
     out: [recalibrated_bam]
 
@@ -113,26 +125,13 @@ steps:
       reference: indexed_reference_fasta
     out: [output]
 
-  picard_collecthsmetrics:
-    run: ../tools/picard_collecthsmetrics.cwl
-    in:
-      input_bam: picard_gatherbamfiles/output
-      intervals: intervals_bed
-      reference: indexed_reference_fasta
-    out: [output]
-
-  picard_bedtointervallist:
-    run: ../tools/picard_bedToIntervallist.cwl
-    in:
-      intervals_bed: intervals_bed
-      reference_dict: reference_dict
-    out: [output]
-
-  picard_intervallisttools:
-    run: ../tools/picard_intervallisttools.cwl
-    in:
-      interval_list: picard_bedtointervallist/output
-    out: [output]
+#  picard_collecthsmetrics:
+#    run: ../tools/picard_collecthsmetrics.cwl
+#    in:
+#      input_bam: picard_gatherbamfiles/output
+#      intervals: intervals_bed
+#      reference: indexed_reference_fasta
+#    out: [output]
 
   verifybamid:
     run: ../tools/verifybamid.cwl
