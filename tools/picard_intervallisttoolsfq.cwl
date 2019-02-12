@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: picard_intervallisttools
+id: picard_intervallisttoolsfq
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement
