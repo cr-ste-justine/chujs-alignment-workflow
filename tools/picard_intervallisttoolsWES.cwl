@@ -14,7 +14,9 @@ arguments:
     shellQuote: false
     valueFrom: >-
       IntervalListTools
-      SCATTER_COUNT=20
+      SCATTER_COUNT=10
+      SUBDIVISION_MODE=BALANCING_WITHOUT_INTERVAL_SUBDIVISION_WITH_OVERFLOW
+      BREAK_BANDS_AT_MULTIPLES_OF=1000000
       UNIQUE=true
       SORT=true
       INPUT=$(inputs.interval_list.path)
