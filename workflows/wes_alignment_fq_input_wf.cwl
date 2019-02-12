@@ -89,8 +89,8 @@ steps:
       reference_dict: reference_dict
     out: [output]
 
-  picard_intervallisttoolsfq:
-    run: ../tools/picard_intervallisttoolsfq.cwl
+  picard_intervallisttools:
+    run: ../tools/picard_intervallisttoolsWES.cwl
     in:
       interval_list: picard_bedtointervallist/output
     out: [output]
@@ -101,7 +101,7 @@ steps:
       input_bam: sambamba_sort/sorted_bam
       knownsites: knownsites
       reference: indexed_reference_fasta
-      sequence_interval: picard_intervallisttoolsfq/output
+      sequence_interval: picard_intervallisttools/output
     scatter: [sequence_interval]
     out: [output]
 
@@ -118,7 +118,7 @@ steps:
       bqsr_report: gatk_gatherbqsrreports/output
       input_bam: sambamba_sort/sorted_bam
       reference: indexed_reference_fasta
-      sequence_interval: picard_intervallisttoolsfq/output
+      sequence_interval: picard_intervallisttools/output
     scatter: [sequence_interval]
     out: [recalibrated_bam]
 
@@ -166,7 +166,7 @@ steps:
     in:
       contamination: checkcontamination/contamination
       input_bam: picard_gatherbamfiles/output
-      interval_list: picard_intervallisttoolsfq/output
+      interval_list: picard_intervallisttools/output
       reference: indexed_reference_fasta
     scatter: [interval_list]
     out: [output]
