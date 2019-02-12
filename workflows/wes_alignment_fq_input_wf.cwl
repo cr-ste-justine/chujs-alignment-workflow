@@ -90,7 +90,7 @@ steps:
     out: [output]
 
   picard_intervallisttools:
-    run: ../tools/picard_intervallisttoolsqc.cwl
+    run: ../tools/picard_intervallisttoolsfq.cwl
     in:
       interval_list: picard_bedtointervallist/output
     out: [output]
