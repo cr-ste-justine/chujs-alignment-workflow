@@ -7,9 +7,12 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-  files_R1: File[]
-  files_R2: File[]
-  rgs: string[]
+#  files_R1: File[]
+#  files_R2: File[]
+  file_R1: File
+  file_R2: File
+#  rgs: string[]
+  rg: string
   output_basename: string
   indexed_reference_fasta:
     type: File
@@ -36,6 +39,7 @@ outputs:
   bqsr_report: {type: File, outputSource: gatk_gatherbqsrreports/output}
   gvcf_calling_metrics: {type: 'File[]', outputSource: picard_collectgvcfcallingmetrics/output}
   aggregation_metrics: {type: 'File[]', outputSource: picard_collectaggregationmetrics/output}
+  fastqc_reports: {type: 'File[]', outputSource: fastqc/zippedFiles}
 #  wes_metrics: {type: File, outputSource: picard_collecthsmetrics/output}
   annotated_g_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
 
@@ -43,12 +47,12 @@ steps:
   bwa_mem:
     run: ../tools/bwa_mem_fq.cwl
     in:
-      file_R1: files_R1
-      file_R2: files_R2
-      rg: rgs
+      file_R1: file_R1
+      file_R2: file_R2
+      rg: rg
       ref: indexed_reference_fasta
-    scatter: [file_R1, file_R2, rg]
-    scatterMethod: dotproduct
+#    scatter: [file_R1, file_R2, rg]
+#    scatterMethod: dotproduct
     out: [output]
     
   sambamba_merge:
@@ -71,6 +75,13 @@ steps:
 #      ref_dict: reference_dict
 #    out: [sequence_intervals, sequence_intervals_with_unmapped]
 
+  fastqc:
+    run: ../tools/fastqc.cwl
+    in:
+      file_R1: file_R1
+      file_R2: file_R2
+    out: [zippedFiles, report]
+
   picard_bedtointervallist:
     run: ../tools/picard_bedToIntervallist.cwl
     in:
@@ -79,7 +90,7 @@ steps:
     out: [output]
 
   picard_intervallisttools:
-    run: ../tools/picard_intervallisttools.cwl
+    run: ../tools/picard_intervallisttoolsqc.cwl
     in:
       interval_list: picard_bedtointervallist/output
     out: [output]

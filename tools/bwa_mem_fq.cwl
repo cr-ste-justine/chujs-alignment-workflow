@@ -26,9 +26,11 @@ inputs:
     type: File
     secondaryFiles: [.64.amb, .64.ann, .64.bwt, .64.pac,
       .64.sa, .64.alt, ^.dict, .amb, .ann, .bwt, .pac, .sa]
-  file_R1: File
-  file_R2: File
+  file_R1:
+    type: File
+  file_R2:
+    type: File
   rg: string
 
 outputs:
-  output: { type: File, outputBinding: { glob: '*.bam' } }
+  output: { type: 'File[]', outputBinding: { glob: '*.bam' } }
