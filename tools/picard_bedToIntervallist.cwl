@@ -1,13 +1,13 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: picard_intervallisttools
+id: picard_bedToIntervallist
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement
   - class: DockerRequirement
-  - class: ResourceRequirement
-      ramMin: 5000
     dockerPull: 'kfdrc/picard:2.18.2-dev'
+  - class: ResourceRequirement
+    ramMin: 5000
 baseCommand: [java, -Xmx4000m, -jar, /picard.jar]
 arguments:
   - position: 1
