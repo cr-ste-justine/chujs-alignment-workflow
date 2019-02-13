@@ -69,11 +69,11 @@ steps:
       base_file_name: output_basename
     out: [sorted_bam]
 
-#  python_createsequencegroups:
-#    run: ../tools/python_createsequencegroups.cwl
-#    in:
-#      ref_dict: reference_dict
-#    out: [sequence_intervals, sequence_intervals_with_unmapped]
+  python_createsequencegroups:
+    run: ../tools/python_createsequencegroups.cwl
+    in:
+      ref_dict: reference_dict
+    out: [sequence_intervals, sequence_intervals_with_unmapped]
 
   fastqc:
     run: ../tools/fastqc.cwl
@@ -101,7 +101,7 @@ steps:
       input_bam: sambamba_sort/sorted_bam
       knownsites: knownsites
       reference: indexed_reference_fasta
-      sequence_interval: picard_intervallisttools/output
+      sequence_interval: python_createsequencegroups/sequence_intervals
     scatter: [sequence_interval]
     out: [output]
 
@@ -118,7 +118,7 @@ steps:
       bqsr_report: gatk_gatherbqsrreports/output
       input_bam: sambamba_sort/sorted_bam
       reference: indexed_reference_fasta
-      sequence_interval: picard_intervallisttools/output
+      sequence_interval: python_createsequencegroups/sequence_intervals
     scatter: [sequence_interval]
     out: [recalibrated_bam]
 
