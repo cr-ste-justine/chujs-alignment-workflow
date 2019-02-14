@@ -7,9 +7,12 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-  files_R1: File[]
-  files_R2: File[]
-  rgs: string[]
+#  files_R1: File[]
+#  files_R2: File[]
+  file_R1: File
+  file_R2: File
+#  rgs: string[]
+  rg: string
   output_basename: string
   indexed_reference_fasta:
     type: File
@@ -25,7 +28,6 @@ inputs:
   contamination_sites_bed: File
   contamination_sites_mu: File
   contamination_sites_ud: File
-  wgs_calling_interval_list: File
   intervals_bed: File
   wgs_evaluation_interval_list: File
   genome: string
@@ -37,19 +39,20 @@ outputs:
   bqsr_report: {type: File, outputSource: gatk_gatherbqsrreports/output}
   gvcf_calling_metrics: {type: 'File[]', outputSource: picard_collectgvcfcallingmetrics/output}
   aggregation_metrics: {type: 'File[]', outputSource: picard_collectaggregationmetrics/output}
-  wes_metrics: {type: File, outputSource: picard_collecthsmetrics/output}
-  annotated_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
+  fastqc_reports: {type: 'File[]', outputSource: fastqc/zippedFiles}
+#  wes_metrics: {type: File, outputSource: picard_collecthsmetrics/output}
+  annotated_g_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
 
 steps:
   bwa_mem:
     run: ../tools/bwa_mem_fq.cwl
     in:
-      file_R1: files_R1
-      file_R2: files_R2
-      rg: rgs
+      file_R1: file_R1
+      file_R2: file_R2
+      rg: rg
       ref: indexed_reference_fasta
-    scatter: [file_R1, file_R2, rg]
-    scatterMethod: dotproduct
+#    scatter: [file_R1, file_R2, rg]
+#    scatterMethod: dotproduct
     out: [output]
     
   sambamba_merge:
@@ -71,6 +74,26 @@ steps:
     in:
       ref_dict: reference_dict
     out: [sequence_intervals, sequence_intervals_with_unmapped]
+
+  fastqc:
+    run: ../tools/fastqc.cwl
+    in:
+      file_R1: file_R1
+      file_R2: file_R2
+    out: [zippedFiles, report]
+
+  picard_bedtointervallist:
+    run: ../tools/picard_bedToIntervallist.cwl
+    in:
+      intervals_bed: intervals_bed
+      reference_dict: reference_dict
+    out: [output]
+
+  picard_intervallisttools:
+    run: ../tools/picard_intervallisttoolsWES.cwl
+    in:
+      interval_list: picard_bedtointervallist/output
+    out: [output]
 
   gatk_baserecalibrator:
     run: ../tools/gatk_baserecalibrator.cwl
@@ -95,7 +118,7 @@ steps:
       bqsr_report: gatk_gatherbqsrreports/output
       input_bam: sambamba_sort/sorted_bam
       reference: indexed_reference_fasta
-      sequence_interval: python_createsequencegroups/sequence_intervals_with_unmapped
+      sequence_interval: python_createsequencegroups/sequence_intervals
     scatter: [sequence_interval]
     out: [recalibrated_bam]
 
@@ -113,26 +136,13 @@ steps:
       reference: indexed_reference_fasta
     out: [output]
 
-  picard_collecthsmetrics:
-    run: ../tools/picard_collecthsmetrics.cwl
-    in:
-      input_bam: picard_gatherbamfiles/output
-      intervals: intervals_bed
-      reference: indexed_reference_fasta
-    out: [output]
-
-  picard_bedtointervallist:
-    run: ../tools/picard_bedToIntervallist.cwl
-    in:
-      intervals_bed: intervals_bed
-      reference_dict: reference_dict
-    out: [output]
-
-  picard_intervallisttools:
-    run: ../tools/picard_intervallisttools.cwl
-    in:
-      interval_list: picard_bedtointervallist/output
-    out: [output]
+#  picard_collecthsmetrics:
+#    run: ../tools/picard_collecthsmetrics.cwl
+#    in:
+#      input_bam: picard_gatherbamfiles/output
+#      intervals: intervals_bed
+#      reference: indexed_reference_fasta
+#    out: [output]
 
   verifybamid:
     run: ../tools/verifybamid.cwl

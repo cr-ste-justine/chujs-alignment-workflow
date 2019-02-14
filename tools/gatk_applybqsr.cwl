@@ -7,7 +7,7 @@ requirements:
   - class: DockerRequirement
     dockerPull: 'kfdrc/gatk:4.0.3.0'
   - class: ResourceRequirement
-    ramMin: 4500
+    ramMin: 5000
 baseCommand: [/gatk, ApplyBQSR]
 arguments:
   - position: 1

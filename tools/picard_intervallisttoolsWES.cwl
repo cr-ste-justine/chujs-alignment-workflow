@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: picard_bedToIntervallist
+id: picard_intervallisttools
 requirements:
   - class: ShellCommandRequirement
   - class: InlineJavascriptRequirement
@@ -13,17 +13,17 @@ arguments:
   - position: 1
     shellQuote: false
     valueFrom: >-
-      BedToIntervalList
+      IntervalListTools
+      SCATTER_COUNT=10
+      SUBDIVISION_MODE=BALANCING_WITHOUT_INTERVAL_SUBDIVISION
       UNIQUE=true
       SORT=true
-      INPUT=$(inputs.intervals_bed.path)
-      OUTPUT=$(inputs.intervals_bed.nameroot).tmp.interval_list
-      SD=$(inputs.reference_dict.path)
+      INPUT=$(inputs.interval_list.path)
+      OUTPUT=$(runtime.outdir)
 inputs:
-  intervals_bed: File
-  reference_dict: File
+  interval_list: File
 outputs:
   output:
-    type: File
+    type: File[]
     outputBinding:
-      glob: '*.interval_list'
+      glob: 'temp*/*.interval_list'
