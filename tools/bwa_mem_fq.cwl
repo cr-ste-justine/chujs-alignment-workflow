@@ -33,4 +33,4 @@ inputs:
   rg: string
 
 outputs:
-  output: { type: 'File[]', outputBinding: { glob: '*.bam' } }
+  output: { type: 'File', outputBinding: { glob: '*.bam' } }

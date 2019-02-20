@@ -7,6 +7,7 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
+  output_dir: string
   files_R1: File[]
   files_R2: File[]
   rgs: string[]
@@ -19,7 +20,7 @@ inputs:
                      '.pac', '.sa']
 
 outputs:
-  bam: {type: File, outputSource: sambamba_merge/merged_bam}
+  bam: {type: Directory, outputSource: copy_result/example_out}
 
 steps:
   bwa_mem:
@@ -33,10 +34,9 @@ steps:
     scatterMethod: dotproduct
     out: [output]
     
-  sambamba_merge:
-    run: ../tools/sambamba_merge_one.cwl
+  copy_result:
+    run: ../tools/mov.cwl
     in:
-      bams: bwa_mem/output
-      base_file_name: output_basename
-    out: [merged_bam]
-
+      infile: bwa_mem/output
+      outdir: output_dir
+    out: [example_out]

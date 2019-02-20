@@ -4,8 +4,8 @@ id: bwa_mem_fq
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 12000
-    coresMin: 7
+    ramMin: 6000
+    coresMin: 3
   - class: DockerRequirement
     dockerPull: 'images.sbgenomics.com/bogdang/bwa-kf-bundle:0.1.17'
   - class: InlineJavascriptRequirement
@@ -14,12 +14,12 @@ arguments:
   - position: 0
     shellQuote: false
     valueFrom: >-
-      bwa mem -K 20000000 -v 3 -t 7
+      bwa mem -K 10000000 -v 2 -t 3
       -Y $(inputs.ref.path)
-      -R '$(inputs.rg)' $(inputs.file_R1.path) $(inputs.file_R2.path)
+      -R '$(inputs.rg)' $(inputs.file_R1.path)
       | /opt/samblaster/samblaster -i /dev/stdin -o /dev/stdout
-      | /opt/sambamba_0.6.3/sambamba_v0.6.3 view -t 7 -f bam -l 0 -S /dev/stdin
-      | /opt/sambamba_0.6.3/sambamba_v0.6.3 sort -t 7 --natural-sort -m 5GiB --tmpdir ./
+      | /opt/sambamba_0.6.3/sambamba_v0.6.3 view -t 3 -f bam -l 0 -S /dev/stdin
+      | /opt/sambamba_0.6.3/sambamba_v0.6.3 sort -t 3 --natural-sort -m 2GiB --tmpdir ./
       -o $(inputs.file_R1.nameroot).unsorted.bam -l 5 /dev/stdin
 inputs:
   ref:

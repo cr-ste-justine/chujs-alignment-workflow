@@ -20,7 +20,8 @@ inputs:
                      '.pac', '.sa']
 
 outputs:
-  bam: {type: File, outputSource: sambamba_merge/merged_bam}
+  bam_r1: {type: Directory, outputSource: copy_result_r1/example_out}
+  bam_r2: {type: Directory, outputSource: copy_result_r2/example_out}
 
 steps:
   bwa_mem_r1:
@@ -39,18 +40,16 @@ steps:
       ref: indexed_reference_fasta
     out: [output]
 
-#  copy_result:
-#    run: ../tools/mov.cwl
-#    in:
-#      infile: bwa_mem_r1/output
-#      outdir: output_dir
-#    out: [example_out]
-
-  sambamba_merge:
-    run: ../tools/sambamba_merge_one_local.cwl
+  copy_result_r1:
+    run: ../tools/mov.cwl
     in:
-      bams: [bwa_mem_r1/output, bwa_mem_r2/output]
-      base_file_name: output_basename
-    out: [merged_bam]
-    scatter: [bams]
-    scatterMethod: dotproduct
+      infile: bwa_mem_r1/output
+      outdir: output_dir
+    out: [example_out]
+
+  copy_result_r2:
+    run: ../tools/mov.cwl
+    in:
+      infile: bwa_mem_r2/output
+      outdir: output_dir
+    out: [example_out]
