@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: Workflow
-id: wgs1_alignment_fq_wf
+id: wesp_alignment_fq_wf
 requirements:
   - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement
@@ -24,29 +24,27 @@ outputs:
 
 steps:
   bwa_mem_r1:
-    run: ../tools/bwa_mem_fq_local.cwl
+    run: ../tools/bwa_mem_fq_1r.cwl
     in:
-      file_R1: file_R1
-      file_R2: file_R2
+      file_R: file_R1
       rg: rg
       ref: indexed_reference_fasta
     out: [output]
 
   bwa_mem_r2:
-    run: ../tools/bwa_mem_fq_local.cwl
+    run: ../tools/bwa_mem_fq_1r.cwl
     in:
-      file_R1: file_R2
-      file_R2: file_R2
+      file_R: file_R2
       rg: rg
       ref: indexed_reference_fasta
     out: [output]
 
-  copy_result:
-    run: ../tools/mov.cwl
-    in:
-      infile: bwa_mem_r1/output
-      outdir: output_dir
-    out: [example_out]
+#  copy_result:
+#    run: ../tools/mov.cwl
+#    in:
+#      infile: bwa_mem_r1/output
+#      outdir: output_dir
+#    out: [example_out]
 
   sambamba_merge:
     run: ../tools/sambamba_merge_one_local.cwl

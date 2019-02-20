@@ -7,12 +7,12 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-#  files_R1: File[]
-#  files_R2: File[]
-  file_R1: File
-  file_R2: File
-#  rgs: string[]
-  rg: string
+  files_R1: File[]
+  files_R2: File[]
+#  file_R1: File
+#  file_R2: File
+  rgs: string[]
+#  rg: string
   output_basename: string
   indexed_reference_fasta:
     type: File
@@ -47,12 +47,12 @@ steps:
   bwa_mem:
     run: ../tools/bwa_mem_fq.cwl
     in:
-      file_R1: file_R1
-      file_R2: file_R2
-      rg: rg
+      file_R1: files_R1
+      file_R2: files_R2
+      rg: rgs
       ref: indexed_reference_fasta
-#    scatter: [file_R1, file_R2, rg]
-#    scatterMethod: dotproduct
+    scatter: [file_R1, file_R2, rg]
+    scatterMethod: dotproduct
     out: [output]
     
   sambamba_merge:

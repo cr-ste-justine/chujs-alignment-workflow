@@ -92,7 +92,7 @@
     "location": "inputs/Homo_sapiens_assembly38.dbsnp138.vcf"
   },
   "output_basename" : "11180_S12_L008",
-  "output_dir" : "../../wgs",
+  "output_dir" : "/Users/flachance/src/chujs-alignment-workflow/workflows/wgs",
   "genome": "hg38",
   "intervals_bed": {
     "class": "File",

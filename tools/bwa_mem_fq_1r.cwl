@@ -1,6 +1,6 @@
 class: CommandLineTool
 cwlVersion: v1.0
-id: bwa_mem_fq
+id: bwa_mem_fq_1r
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
@@ -16,7 +16,7 @@ arguments:
     valueFrom: >-
       bwa mem -K 100000000 -v 3 -t 15
       -Y $(inputs.ref.path)
-      -R '$(inputs.rg)' $(inputs.file_R1.path) $(inputs.file_R2.path)
+      -R '$(inputs.rg)' $(inputs.file_R.path)
       | /opt/samblaster/samblaster -i /dev/stdin -o /dev/stdout
       | /opt/sambamba_0.6.3/sambamba_v0.6.3 view -t 17 -f bam -l 0 -S /dev/stdin
       | /opt/sambamba_0.6.3/sambamba_v0.6.3 sort -t 17 --natural-sort -m 15GiB --tmpdir ./
@@ -26,9 +26,7 @@ inputs:
     type: File
     secondaryFiles: [.64.amb, .64.ann, .64.bwt, .64.pac,
       .64.sa, .64.alt, ^.dict, .amb, .ann, .bwt, .pac, .sa]
-  file_R1:
-    type: File
-  file_R2:
+  file_R:
     type: File
   rg: string
 
