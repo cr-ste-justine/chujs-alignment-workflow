@@ -78,8 +78,10 @@ steps:
   fastqc:
     run: ../tools/fastqc.cwl
     in:
-      file_R1: file_R1
-      file_R2: file_R2
+      file_R1: files_R1
+      file_R2: files_R2
+    scatter: [file_R1, file_R2]
+    scatterMethod: dotproduct
     out: [zippedFiles, report]
 
   picard_bedtointervallist:

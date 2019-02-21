@@ -2,22 +2,22 @@
   "files_R1": [
     {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R1_001.fastq"
+      "location": "inputs/11180_S12_L008_R1_001.fastq.gz"
     }
   ],
   "files_R2": [
     {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R2_001.fastq"
+      "location": "inputs/11180_S12_L008_R2_001.fastq.gz"
     }
   ],
   "file_R1": {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R1_001.fastq"
+      "location": "inputs/11180_S12_L008_R1_001.fastq.gz"
   },
   "file_R2": {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R2_001.fastq"
+      "location": "inputs/11180_S12_L008_R2_001.fastq.gz"
   },
   "rgs": [
     "@RG\\tID:11180\\tSM:11180\\tPL:ILLUMINA"
