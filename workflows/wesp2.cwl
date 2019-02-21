@@ -36,7 +36,7 @@ steps:
   bwa_mem_l2:
     run: ../tools/bwa_mem_fq.cwl
     in:
-      file_R1: file_R2_l2
+      file_R1: file_R1_l2
       file_R2: file_R2_l2
       rg: rg
       ref: indexed_reference_fasta
