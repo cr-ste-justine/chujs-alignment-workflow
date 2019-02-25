@@ -13,12 +13,12 @@ arguments:
   - position: 0
     shellQuote: false
     valueFrom: >-
-      bwa mem -K 100000000 -v 3 -t 15
+      bwa mem -K 90000000 -v 3 -t 13
       -Y $(inputs.ref.path)
       -R '$(inputs.rg)' $(inputs.file_R1.path) $(inputs.file_R2.path)
       | /opt/samblaster/samblaster -i /dev/stdin -o /dev/stdout
-      | /opt/sambamba_0.6.3/sambamba_v0.6.3 view -t 15 -f bam -l 0 -S /dev/stdin
-      | /opt/sambamba_0.6.3/sambamba_v0.6.3 sort -t 15 --natural-sort -m 15GiB --tmpdir ./
+      | /opt/sambamba_0.6.3/sambamba_v0.6.3 view -t 13 -f bam -l 0 -S /dev/stdin
+      | /opt/sambamba_0.6.3/sambamba_v0.6.3 sort -t 13 --natural-sort -m 15GiB --tmpdir ./
       -o $(inputs.file_R1.nameroot).unsorted.bam -l 5 /dev/stdin
 inputs:
   ref:
