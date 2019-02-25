@@ -25,7 +25,7 @@ outputs:
 
 steps:
   bwa_mem_l1:
-    run: ../tools/bwa_mem_fq.cwl
+    run: ../tools/bwa_mem_fqp.cwl
     in:
       file_R1: file_R1_l1
       file_R2: file_R2_l1
@@ -34,7 +34,7 @@ steps:
     out: [output]
 
   bwa_mem_l2:
-    run: ../tools/bwa_mem_fq.cwl
+    run: ../tools/bwa_mem_fqp.cwl
     in:
       file_R1: file_R1_l2
       file_R2: file_R2_l2
@@ -43,14 +43,14 @@ steps:
     out: [output]
 
   sambamba_merge:
-    run: ../tools/sambamba_merge_one_local.cwl
+    run: ../tools/sambamba_merge_one.cwl
     in:
       bams: [bwa_mem_l1/output, bwa_mem_l2/output]
       base_file_name: output_basename
     out: [merged_bam]
 
   sambamba_sort:
-    run: ../tools/sambamba_sort_local.cwl
+    run: ../tools/sambamba_sort.cwl
     in:
       bam: sambamba_merge/merged_bam
       base_file_name: output_basename
