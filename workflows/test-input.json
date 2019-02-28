@@ -2,13 +2,21 @@
   "files_R1": [
     {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R1_001.fastq.gz"
+      "location": "inputs/11180_S4_L001_R1_001.fastq.gz"
+    },
+    {
+      "class": "File",
+      "location": "inputs/11180_S4_L002_R1_001.fastq.gz"
     }
   ],
   "files_R2": [
     {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R2_001.fastq.gz"
+      "location": "inputs/11180_S4_L002_R2_001.fastq.gz"
+    },
+    {
+      "class": "File",
+      "location": "inputs/11180_S4_L002_R2_001.fastq.gz"
     }
   ],
   "file_R1": {
