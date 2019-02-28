@@ -30,6 +30,7 @@ outputs:
   r2_l1_array: {type: 'File[]', outputSource: bwa_split_r2_l1/split_reads}
   r1_l2_array: {type: 'File[]', outputSource: bwa_split_r1_l2/split_reads}
   r2_l2_array: {type: 'File[]', outputSource: bwa_split_r2_l2/split_reads}
+  sorted_bam: {type: File, outputSource: sambamba_sort/sorted_bam}
 
 
 steps:
