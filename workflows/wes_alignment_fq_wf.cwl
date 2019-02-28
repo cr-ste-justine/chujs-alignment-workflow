@@ -180,11 +180,18 @@ steps:
       output_vcf_basename: output_basename
     out: [output]
 
+  picard_mergevcfs_no_zip:
+    run: ../tools/picard_mergeWithoutZippingVcfs.cwl
+    in:
+      input_vcf: gatk_haplotypecaller/output
+      output_vcf_basename: output_basename
+    out: [output]
+
   snpeff_g_vcf:
     run: ../tools/snpeff-workflow.cwl
     in:
       genome: genome
-      infile: picard_mergevcfs/output
+      infile: picard_mergevcfs_no_zip/output
     out: [outfile, statsfile, genesfile]
 
   picard_collectgvcfcallingmetrics:
@@ -194,7 +201,7 @@ steps:
       final_gvcf_base_name: output_basename
       input_vcf: picard_mergevcfs/output
       reference_dict: reference_dict
-      wgs_evaluation_interval_list: wgs_evaluation_interval_list
+      wgs_evaluation_interval_list: picard_intervallisttools/output
     out: [output]
 
   samtools_coverttocram:

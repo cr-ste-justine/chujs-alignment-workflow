@@ -121,5 +121,8 @@
   "interval_list": {
     "class": "File",
     "location": "inputs/wgs_calling_regions.hg38.interval_list"
-  }
+  },
+  "lineCounts": "2000000",
+  "out_R1" : "test_r1",
+  "out_R2" : "test_r2"
 }
