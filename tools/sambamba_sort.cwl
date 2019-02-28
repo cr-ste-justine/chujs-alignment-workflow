@@ -4,8 +4,8 @@ id: sambamba_sort
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 15000
-    coresMin: 36
+    ramMin: 30000
+    coresMin: 30
   - class: DockerRequirement
     dockerPull: 'images.sbgenomics.com/bogdang/sambamba:0.6.3'
   - class: InlineJavascriptRequirement
@@ -15,7 +15,7 @@ arguments:
     shellQuote: false
     valueFrom: >-
       /opt/sambamba_0.6.3/sambamba_v0.6.3 sort
-      -t 36 -m 10G
+      -t 30 -m 24G
       -o $(inputs.base_file_name).$(inputs.suffix).bam
       $(inputs.bam.path)
 
