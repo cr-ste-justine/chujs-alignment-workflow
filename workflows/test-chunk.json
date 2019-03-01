@@ -2,21 +2,77 @@
   "files_R1": [
     {
       "class": "File",
-      "location": "inputs/11180_S4_L001_R1_001.fastq.gz"
+      "location": "inputs/test_r1aa"
     },
     {
       "class": "File",
-      "location": "inputs/11180_S4_L002_R1_001.fastq.gz"
+      "location": "inputs/test_r1ab"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1ac"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1ad"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1ae"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1af"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1ag"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1ah"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1ai"
     }
   ],
   "files_R2": [
     {
       "class": "File",
-      "location": "inputs/11180_S4_L002_R2_001.fastq.gz"
+      "location": "inputs/test_r2aa"
     },
     {
       "class": "File",
-      "location": "inputs/11180_S4_L002_R2_001.fastq.gz"
+      "location": "inputs/test_r2ab"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2ac"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2ad"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2ae"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2af"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2ag"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2ah"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2ai"
     }
   ],
   "file_R1": {
@@ -132,9 +188,5 @@
   },
   "lineCounts": "2000000",
   "out_R1" : "test_r1",
-  "out_R2" : "test_r2",
-  "sorted_bam": {
-    "class": "File",
-    "location": "inputs/11180_S4_L0102.aligned.duplicates_marked.sorted.bam"
-  }
+  "out_R2" : "test_r2"
 }
