@@ -9,7 +9,7 @@ requirements:
 inputs:
   files_R1: File[]
   files_R2: File[]
-  rgs: string[]
+  rg: string
   output_basename: string
   indexed_reference_fasta:
     type: File
@@ -30,7 +30,7 @@ inputs:
   genome: string
 
 outputs:
-  fastqc_reports: {type: 'File[]', outputSource: fastqc/zippedFiles}
+  sorted_bam: {type: File, outputSource: sambamba_sort/sorted_bam}
 
 steps:
   bwa_mem:
@@ -38,9 +38,9 @@ steps:
     in:
       file_R1: files_R1
       file_R2: files_R2
-      rg: rgs
+      rg: rg
       ref: indexed_reference_fasta
-    scatter: [file_R1, file_R2, rg]
+    scatter: [file_R1, file_R2]
     scatterMethod: dotproduct
     out: [output]
     
@@ -57,12 +57,3 @@ steps:
       bam: sambamba_merge/merged_bam
       base_file_name: output_basename
     out: [sorted_bam]
-
-  fastqc:
-    run: ../tools/fastqc.cwl
-    in:
-      file_R1: files_R1
-      file_R2: files_R2
-    scatter: [file_R1, file_R2]
-    scatterMethod: dotproduct
-    out: [zippedFiles, report]

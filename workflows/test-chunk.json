@@ -35,6 +35,30 @@
     {
       "class": "File",
       "location": "inputs/test_r1ai"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1aj"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1ak"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1al"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1am"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1an"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r1ao"
     }
   ],
   "files_R2": [
@@ -73,6 +97,30 @@
     {
       "class": "File",
       "location": "inputs/test_r2ai"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2aj"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2ak"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2al"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2am"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2an"
+    },
+    {
+      "class": "File",
+      "location": "inputs/test_r2ao"
     }
   ],
   "file_R1": {
