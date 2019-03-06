@@ -7,6 +7,7 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
+  output_basename: string
   sorted_bam:
     type: File
     secondaryFiles: ['.bai']
@@ -66,7 +67,7 @@ steps:
     run: ../tools/gatk_applybqsr.cwl
     in:
       bqsr_report: gatk_gatherbqsrreports/output
-      input_bam: sambamba_sort/sorted_bam
+      input_bam: sorted_bam
       reference: indexed_reference_fasta
       sequence_interval: python_createsequencegroups/sequence_intervals
     scatter: [sequence_interval]
@@ -106,7 +107,7 @@ steps:
       contamination_sites_bed: contamination_sites_bed
       contamination_sites_mu: contamination_sites_mu
       contamination_sites_ud: contamination_sites_ud
-      input_bam: sambamba_sort/sorted_bam
+      input_bam: sorted_bam
       ref_fasta: indexed_reference_fasta
       output_basename: output_basename
     out: [output]
