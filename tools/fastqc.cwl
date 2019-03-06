@@ -4,7 +4,7 @@ class: CommandLineTool
 
 requirements:
   - class: DockerRequirement
-    dockerPull: cr-ste-justine/fastqc
+    dockerPull: chusj/fastqc
 
 inputs:
   file_R1:

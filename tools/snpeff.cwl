@@ -8,7 +8,7 @@ baseCommand: []
 
 requirements:
   - class: DockerRequirement
-    dockerPull: cr-ste-justine/snpeff
+    dockerPull: chusj/snpeff
 
 inputs:
   genome:

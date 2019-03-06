@@ -142,8 +142,12 @@ docker pull kfdrc/verifybamid:1.0.2
 docker pull kfdrc/gatk:4.beta.1-3.5
 docker pull kfdrc/samtools:1.8-dev
 docker pull images.sbgenomics.com/bogdang/bwa-kf-bundle:0.1.17
+# if not already build
 cd snpeff
-docker build . --tag=cr-ste-justine/snpeff
+docker build . --tag=chusj/snpeff
 cd ../fastqc
-docker build . --tag=cr-ste-justine/fastqc
+docker build . --tag=chusj/fastqc
+# if build
+docker pull chusj/snpeff
+docker pull chusj/fastqc
 ```
