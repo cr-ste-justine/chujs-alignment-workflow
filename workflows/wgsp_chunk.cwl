@@ -27,8 +27,8 @@ steps:
   bwa_mem_l1:
     run: ../tools/bwa_mem_fqp.cwl
     in:
-      file_R1: file_l1_R1
-      file_R2: file_l1_R2
+      file_R1: files_l1_R1
+      file_R2: files_l1_R2
       rg: rg
       ref: indexed_reference_fasta
     scatter: [file_R1, file_R2]
@@ -38,8 +38,8 @@ steps:
   bwa_mem_l2:
     run: ../tools/bwa_mem_fqp.cwl
     in:
-      file_R1: file_l2_R1
-      file_R2: file_l2_R2
+      file_R1: files_l2_R1
+      file_R2: files_l2_R2
       rg: rg
       ref: indexed_reference_fasta
       scatter: [file_R1, file_R2]
