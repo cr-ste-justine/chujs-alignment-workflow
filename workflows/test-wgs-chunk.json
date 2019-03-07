@@ -71,6 +71,26 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l1_r1ar"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1as"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1at"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1au"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1av"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1aw"
     }
   ],
   "files_l1_R2": [
@@ -145,6 +165,26 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l1_r2ar"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2as"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2at"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2au"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2av"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2aw"
     }
   ],
   "files_l2_R1": [
@@ -219,6 +259,26 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l2_r1ar"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1as"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1at"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1au"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1av"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1aw"
     }
   ],
   "files_l2_R2": [
@@ -293,6 +353,26 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l2_r2ar"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2as"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2at"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2au"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2av"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2aw"
     }
   ],
   "rgs": [
