@@ -1,0 +1,374 @@
+{
+  "files_l1_R1": [
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1aa"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ab"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ac"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ad"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ae"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1af"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ag"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ah"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ai"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1aj"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ak"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1al"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1am"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1an"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ao"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ap"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1aq"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r1ar"
+    }
+  ],
+  "files_l1_R2": [
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2aa"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ab"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ac"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ad"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ae"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2af"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ag"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ah"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ai"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2aj"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ak"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2al"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2am"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2an"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ao"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ap"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2aq"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ar"
+    }
+  ],
+  "files_l2_R1": [
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1aa"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ab"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ac"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ad"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ae"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1af"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ag"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ah"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ai"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1aj"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ak"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1al"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1am"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1an"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ao"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ap"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1aq"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r1ar"
+    }
+  ],
+  "files_l2_R2": [
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2aa"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ab"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ac"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ad"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ae"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2af"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ag"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ah"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ai"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2aj"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ak"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2al"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2am"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2an"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ao"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ap"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2aq"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l2_r2ar"
+    }
+  ],
+  "rgs": [
+    "@RG\\tID:11180\\tSM:11180\\tPL:ILLUMINA"
+  ],
+  "rg" : "@RG\\tID:11180\\tSM:11180\\tPL:ILLUMINA",
+  "indexed_reference_fasta": {
+    "class": "File",
+    "location": "inputs/Homo_sapiens_assembly38.fasta"
+  },
+  "ref": {
+    "class": "File",
+    "location": "inputs/Homo_sapiens_assembly38.fasta"
+  },
+  "contamination_sites_ud": {
+    "class": "File",
+    "location": "inputs/Homo_sapiens_assembly38.contam.UD"
+  },
+  "contamination_sites_mu": {
+    "class": "File",
+    "location": "inputs/Homo_sapiens_assembly38.contam.mu"
+  },
+  "contamination_sites_bed": {
+    "class": "File",
+    "location": "inputs/Homo_sapiens_assembly38.contam.bed"
+  },
+  "knownsites": [
+    {
+      "class": "File",
+      "location": "inputs/1000G_omni2.5.hg38.vcf.gz"
+    },
+    {
+      "class": "File",
+      "location": "inputs/1000G_phase1.snps.high_confidence.hg38.vcf.gz"
+    },
+    {
+      "class": "File",
+      "location": "inputs/Homo_sapiens_assembly38.known_indels.vcf.gz"
+    },
+    {
+      "class": "File",
+      "location": "inputs/Mills_and_1000G_gold_standard.indels.hg38.vcf.gz"
+    }
+  ],
+  "reference_dict": {
+    "class": "File",
+    "location": "inputs/Homo_sapiens_assembly38.dict"
+  },
+  "sequence_grouping_tsv": {
+    "class": "File",
+    "location": "inputs/sequence_grouping.txt"
+  },
+  "wgs_coverage_interval_list": {
+    "class": "File",
+    "location": "inputs/wgs_coverage_regions.hg38.interval_list"
+  },
+  "wgs_calling_interval_list": {
+    "class": "File",
+    "location": "inputs/wgs_calling_regions.hg38.interval_list"
+  },
+  "wgs_evaluation_interval_list": {
+    "class": "File",
+    "location": "inputs/wgs_evaluation_regions.hg38.interval_list"
+  },
+  "dbsnp_vcf": {
+    "class": "File",
+    "location": "inputs/Homo_sapiens_assembly38.dbsnp138.vcf"
+  },
+  "output_basename" : "11180_S4_L0102",
+  "genome": "hg38",
+  "intervals_bed": {
+    "class": "File",
+    "location": "inputs/MedExome_hg38_capture_targets.bed"
+  },
+  "interval_list": {
+    "class": "File",
+    "location": "inputs/wgs_calling_regions.hg38.interval_list"
+  }
+}
