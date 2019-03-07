@@ -8,10 +8,10 @@ requirements:
 
 inputs:
   output_basename: string
-  files_R1_l1: File[]
-  files_R2_l1: File[]
-  files_R1_l2: File[]
-  files_R2_l2: File[]
+  files_l1_R1: File[]
+  files_l1_R2: File[]
+  files_l2_R1: File[]
+  files_l2_R2: File[]
   rg: string
   indexed_reference_fasta:
     type: File
@@ -27,8 +27,8 @@ steps:
   bwa_mem_l1:
     run: ../tools/bwa_mem_fqp.cwl
     in:
-      file_R1: file_l1_r1
-      file_R2: file_l1_r2
+      file_R1: file_l1_R1
+      file_R2: file_l1_R2
       rg: rg
       ref: indexed_reference_fasta
     scatter: [file_R1, file_R2]
