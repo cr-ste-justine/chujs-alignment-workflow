@@ -42,8 +42,8 @@ steps:
       file_R2: files_l2_R2
       rg: rg
       ref: indexed_reference_fasta
-      scatter: [file_R1, file_R2]
-      scatterMethod: dotproduct
+    scatter: [file_R1, file_R2]
+    scatterMethod: dotproduct
     out: [output]
 
   sambamba_merge:
