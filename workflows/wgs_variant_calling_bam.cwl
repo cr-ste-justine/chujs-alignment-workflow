@@ -31,6 +31,7 @@ inputs:
   genome: string
 
 outputs:
+  fastqc_reports: {type: 'File[]', outputSource: fastqc/zippedFiles}
   gvcf: {type: File, outputSource: picard_mergevcfs/output}
   verifybamid_output: {type: File, outputSource: verifybamid/output}
   bqsr_report: {type: File, outputSource: gatk_gatherbqsrreports/output}
@@ -40,6 +41,12 @@ outputs:
   annotated_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
 
 steps:
+  fastqc:
+    run: ../tools/fastqcBAM.cwl
+    in:
+      bam: sorted_bam
+    out: [zippedFiles, report]
+
   python_createsequencegroups:
     run: ../tools/python_createsequencegroups.cwl
     in:
