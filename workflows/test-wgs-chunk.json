@@ -59,38 +59,6 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l1_r1ao"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r1ap"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r1aq"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r1ar"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r1as"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r1at"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r1au"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r1av"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r1aw"
     }
   ],
   "files_l1_R2": [
@@ -149,42 +117,6 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l1_r2an"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2ao"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2ap"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2aq"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2ar"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2as"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2at"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2au"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2av"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l1_r2aw"
     }
   ],
   "files_l2_R1": [
@@ -243,42 +175,6 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l2_r1an"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1ao"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1ap"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1aq"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1ar"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1as"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1at"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1au"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1av"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r1aw"
     }
   ],
   "files_l2_R2": [
@@ -337,42 +233,6 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l2_r2an"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2ao"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2ap"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2aq"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2ar"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2as"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2at"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2au"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2av"
-    },
-    {
-      "class": "File",
-      "location": "inputs/wgs_chunk/test_l2_r2aw"
     }
   ],
   "rgs": [
@@ -441,7 +301,7 @@
     "class": "File",
     "location": "inputs/Homo_sapiens_assembly38.dbsnp138.vcf"
   },
-  "output_basename" : "11180_S4_L0102",
+  "output_basename" : "13179_S1_L0102",
   "genome": "hg38",
   "intervals_bed": {
     "class": "File",

@@ -8,11 +8,11 @@ requirements:
 
 inputs:
   file_R1:
-    type: File
+    type: File[]
     inputBinding:
       position: 1
   file_R2:
-    type: File
+    type: File[]
     inputBinding:
       position: 2
 
