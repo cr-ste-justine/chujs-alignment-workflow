@@ -105,5 +105,9 @@
   "interval_list": {
     "class": "File",
     "location": "inputs/wgs_calling_regions.hg38.interval_list"
+  },
+  "sorted_bam": {
+    "class": "File",
+    "location": "inputs/11180_S12_L008.aligned.duplicates_marked.sorted.bam"
   }
 }

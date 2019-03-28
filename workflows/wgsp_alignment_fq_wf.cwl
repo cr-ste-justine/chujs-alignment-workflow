@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: Workflow
-id: wgs_alignment_fq_wf
+id: wgsp_alignment_fq_wf
 requirements:
   - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement
@@ -30,7 +30,7 @@ inputs:
   wgs_calling_interval_list: File
   wgs_coverage_interval_list: File
   wgs_evaluation_interval_list: File
-#  genome: string
+  genome: string
 
 outputs:
   cram: {type: File, outputSource: samtools_coverttocram/output}
@@ -40,7 +40,7 @@ outputs:
   gvcf_calling_metrics: {type: 'File[]', outputSource: picard_collectgvcfcallingmetrics/output}
   aggregation_metrics: {type: 'File[]', outputSource: picard_collectaggregationmetrics/output}
   wgs_metrics: {type: File, outputSource: picard_collectwgsmetrics/output}
-#  annotated_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
+  annotated_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
 
 steps:
   bwa_mem_l1:
@@ -170,12 +170,12 @@ steps:
       output_vcf_basename: output_basename
     out: [output]
 
-#  snpeff_g_vcf:
-#    run: ../tools/snpeff-workflow.cwl
-#    in:
-#      genome: genome
-#      infile: picard_mergevcfs/output
-#    out: [outfile, statsfile, genesfile]
+  snpeff_g_vcf:
+    run: ../tools/snpeff-workflow.cwl
+    in:
+      genome: genome
+      infile: picard_mergevcfs/output
+    out: [outfile, statsfile, genesfile]
 
   picard_collectgvcfcallingmetrics:
     run: ../tools/picard_collectgvcfcallingmetrics.cwl
