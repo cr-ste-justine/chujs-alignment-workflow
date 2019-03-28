@@ -117,6 +117,10 @@
     {
       "class": "File",
       "location": "inputs/wgs_chunk/test_l1_r2an"
+    },
+    {
+      "class": "File",
+      "location": "inputs/wgs_chunk/test_l1_r2ao"
     }
   ],
   "files_l2_R1": [
