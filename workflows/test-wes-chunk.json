@@ -61,7 +61,7 @@
       "location": "inputs/wes_chunk/test_l1_r1ao"
     }
   ],
-  "files_l1_R2": [
+  "files_R2": [
     {
       "class": "File",
       "location": "inputs/wes_chunk/test_r2aa"
