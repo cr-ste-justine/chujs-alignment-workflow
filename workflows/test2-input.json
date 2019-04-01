@@ -108,6 +108,6 @@
   },
   "sorted_bam": {
     "class": "File",
-    "location": "inputs/11180_S12_L008.aligned.duplicates_marked.sorted.bam"
+    "location": "inputs/13179_S1_L0102.aligned.duplicates_marked.sorted.bam"
   }
 }
