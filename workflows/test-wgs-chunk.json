@@ -240,9 +240,9 @@
     }
   ],
   "rgs": [
-    "@RG\\tID:11180\\tSM:11180\\tPL:ILLUMINA"
+    "@RG\\tID:13179\\tSM:13179\\tPL:ILLUMINA"
   ],
-  "rg" : "@RG\\tID:11180\\tSM:11180\\tPL:ILLUMINA",
+  "rg" : "@RG\\tID:13179\\tSM:13179\\tPL:ILLUMINA",
   "indexed_reference_fasta": {
     "class": "File",
     "location": "inputs/Homo_sapiens_assembly38.fasta"
