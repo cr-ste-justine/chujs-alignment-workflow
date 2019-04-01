@@ -2,63 +2,63 @@
   "files_R1": [
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1aa"
+      "location": "inputs/wes_chunk/test_r1aa"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ab"
+      "location": "inputs/wes_chunk/test_r1ab"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ac"
+      "location": "inputs/wes_chunk/test_r1ac"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ad"
+      "location": "inputs/wes_chunk/test_r1ad"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ae"
+      "location": "inputs/wes_chunk/test_r1ae"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1af"
+      "location": "inputs/wes_chunk/test_r1af"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ag"
+      "location": "inputs/wes_chunk/test_r1ag"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ah"
+      "location": "inputs/wes_chunk/test_r1ah"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ai"
+      "location": "inputs/wes_chunk/test_r1ai"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1aj"
+      "location": "inputs/wes_chunk/test_r1aj"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ak"
+      "location": "inputs/wes_chunk/test_r1ak"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1al"
+      "location": "inputs/wes_chunk/test_r1al"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1am"
+      "location": "inputs/wes_chunk/test_r1am"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1an"
+      "location": "inputs/wes_chunk/test_r1an"
     },
     {
       "class": "File",
-      "location": "inputs/wes_chunk/test_l1_r1ao"
+      "location": "inputs/wes_chunk/test_r1ao"
     }
   ],
   "files_R2": [
