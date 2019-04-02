@@ -16,7 +16,7 @@ inputs:
     inputBinding:
       position: 2
 
-baseCommand: [fastqc, --outdir, ., --extract]
+baseCommand: [/FastQC/fastqc, --outdir, ., --extract]
 outputs:
   zippedFiles:
     type: File[]
