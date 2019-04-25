@@ -1,11 +1,11 @@
 cwlVersion: v1.0
 class: CommandLineTool
-id: sambamba_merge
+id: sambamba_merge_one
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement
-    ramMin: 2024
-    coresMin: 36
+    ramMin: 4096
+    coresMin: 30
   - class: DockerRequirement
     dockerPull: 'images.sbgenomics.com/bogdang/sambamba:0.6.3'
   - class: InlineJavascriptRequirement
@@ -16,7 +16,7 @@ arguments:
     valueFrom: |-
       ${
           if (inputs.bams.length != 1)
-           return "/opt/sambamba_0.6.3/sambamba_v0.6.3 merge -t 36 " + inputs.base_file_name + ".aligned.duplicates_marked.unsorted.bam"
+           return "/opt/sambamba_0.6.3/sambamba_v0.6.3 merge -t 30 " + inputs.base_file_name + ".aligned.duplicates_marked.unsorted.bam"
           else return "echo "
        }
 inputs:

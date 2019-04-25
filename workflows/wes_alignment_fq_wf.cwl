@@ -7,12 +7,9 @@ requirements:
   - class: SubworkflowFeatureRequirement
 
 inputs:
-#  files_R1: File[]
-#  files_R2: File[]
-  file_R1: File
-  file_R2: File
-#  rgs: string[]
-  rg: string
+  files_R1: File[]
+  files_R2: File[]
+  rgs: string[]
   output_basename: string
   indexed_reference_fasta:
     type: File
@@ -47,12 +44,12 @@ steps:
   bwa_mem:
     run: ../tools/bwa_mem_fq.cwl
     in:
-      file_R1: file_R1
-      file_R2: file_R2
-      rg: rg
+      file_R1: files_R1
+      file_R2: files_R2
+      rg: rgs
       ref: indexed_reference_fasta
-#    scatter: [file_R1, file_R2, rg]
-#    scatterMethod: dotproduct
+    scatter: [file_R1, file_R2, rg]
+    scatterMethod: dotproduct
     out: [output]
     
   sambamba_merge:
@@ -78,8 +75,10 @@ steps:
   fastqc:
     run: ../tools/fastqc.cwl
     in:
-      file_R1: file_R1
-      file_R2: file_R2
+      file_R1: files_R1
+      file_R2: files_R2
+    scatter: [file_R1, file_R2]
+    scatterMethod: dotproduct
     out: [zippedFiles, report]
 
   picard_bedtointervallist:
@@ -178,11 +177,18 @@ steps:
       output_vcf_basename: output_basename
     out: [output]
 
+  picard_mergevcfs_no_zip:
+    run: ../tools/picard_mergeWithoutZippingVcfs.cwl
+    in:
+      input_vcf: gatk_haplotypecaller/output
+      output_vcf_basename: output_basename
+    out: [output]
+
   snpeff_g_vcf:
     run: ../tools/snpeff-workflow.cwl
     in:
       genome: genome
-      infile: picard_mergevcfs/output
+      infile: picard_mergevcfs_no_zip/output
     out: [outfile, statsfile, genesfile]
 
   picard_collectgvcfcallingmetrics:
@@ -192,7 +198,7 @@ steps:
       final_gvcf_base_name: output_basename
       input_vcf: picard_mergevcfs/output
       reference_dict: reference_dict
-      wgs_evaluation_interval_list: wgs_evaluation_interval_list
+      wgs_evaluation_interval_list: picard_intervallisttools/output
     out: [output]
 
   samtools_coverttocram:

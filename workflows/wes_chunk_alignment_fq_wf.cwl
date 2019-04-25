@@ -1,6 +1,6 @@
 cwlVersion: v1.0
 class: Workflow
-id: wgs_alignment_fq_wf
+id: wes_alignment_fq_input_wf
 requirements:
   - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement
@@ -9,7 +9,7 @@ requirements:
 inputs:
   files_R1: File[]
   files_R2: File[]
-  rgs: string[]
+  rg: string
   output_basename: string
   indexed_reference_fasta:
     type: File
@@ -25,33 +25,34 @@ inputs:
   contamination_sites_bed: File
   contamination_sites_mu: File
   contamination_sites_ud: File
-  wgs_calling_interval_list: File
-  wgs_coverage_interval_list: File
+  intervals_bed: File
   wgs_evaluation_interval_list: File
   genome: string
 
 outputs:
+  sorted_bam: {type: File, outputSource: sambamba_sort/sorted_bam}
   cram: {type: File, outputSource: samtools_coverttocram/output}
   gvcf: {type: File, outputSource: picard_mergevcfs/output}
   verifybamid_output: {type: File, outputSource: verifybamid/output}
   bqsr_report: {type: File, outputSource: gatk_gatherbqsrreports/output}
   gvcf_calling_metrics: {type: 'File[]', outputSource: picard_collectgvcfcallingmetrics/output}
   aggregation_metrics: {type: 'File[]', outputSource: picard_collectaggregationmetrics/output}
-  wgs_metrics: {type: File, outputSource: picard_collectwgsmetrics/output}
-  annotated_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
+  fastqc_reports: {type: 'File[]', outputSource: fastqc/zippedFiles}
+  #  wes_metrics: {type: File, outputSource: picard_collecthsmetrics/output}
+  annotated_g_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
 
 steps:
   bwa_mem:
-    run: ../tools/bwa_mem_fq.cwl
+    run: ../tools/bwa_mem_fqp.cwl
     in:
       file_R1: files_R1
       file_R2: files_R2
-      rg: rgs
+      rg: rg
       ref: indexed_reference_fasta
-    scatter: [file_R1, file_R2, rg]
+    scatter: [file_R1, file_R2]
     scatterMethod: dotproduct
     out: [output]
-
+    
   sambamba_merge:
     run: ../tools/sambamba_merge_one.cwl
     in:
@@ -70,7 +71,29 @@ steps:
     run: ../tools/python_createsequencegroups.cwl
     in:
       ref_dict: reference_dict
-    out: [sequence_intervals]
+    out: [sequence_intervals, sequence_intervals_with_unmapped]
+
+  fastqc:
+    run: ../tools/fastqc.cwl
+    in:
+      file_R1: files_R1
+      file_R2: files_R2
+    scatter: [file_R1, file_R2]
+    scatterMethod: dotproduct
+    out: [zippedFiles, report]
+
+  picard_bedtointervallist:
+    run: ../tools/picard_bedToIntervallist.cwl
+    in:
+      intervals_bed: intervals_bed
+      reference_dict: reference_dict
+    out: [output]
+
+  picard_intervallisttools:
+    run: ../tools/picard_intervallisttoolsWES.cwl
+    in:
+      interval_list: picard_bedtointervallist/output
+    out: [output]
 
   gatk_baserecalibrator:
     run: ../tools/gatk_baserecalibrator.cwl
@@ -113,19 +136,13 @@ steps:
       reference: indexed_reference_fasta
     out: [output]
 
-  picard_collectwgsmetrics:
-    run: ../tools/picard_collectwgsmetrics.cwl
-    in:
-      input_bam: picard_gatherbamfiles/output
-      intervals: wgs_coverage_interval_list
-      reference: indexed_reference_fasta
-    out: [output]
-
-  picard_intervallisttools:
-    run: ../tools/picard_intervallisttools.cwl
-    in:
-      interval_list: wgs_calling_interval_list
-    out: [output]
+  #  picard_collecthsmetrics:
+  #    run: ../tools/picard_collecthsmetrics.cwl
+  #    in:
+  #      input_bam: picard_gatherbamfiles/output
+  #      intervals: intervals_bed
+  #      reference: indexed_reference_fasta
+  #    out: [output]
 
   verifybamid:
     run: ../tools/verifybamid.cwl
@@ -161,11 +178,18 @@ steps:
       output_vcf_basename: output_basename
     out: [output]
 
+  picard_mergevcfs_no_zip:
+    run: ../tools/picard_mergeWithoutZippingVcfs.cwl
+    in:
+      input_vcf: gatk_haplotypecaller/output
+      output_vcf_basename: output_basename
+    out: [output]
+
   snpeff_g_vcf:
     run: ../tools/snpeff-workflow.cwl
     in:
       genome: genome
-      infile: picard_mergevcfs/output
+      infile: picard_mergevcfs_no_zip/output
     out: [outfile, statsfile, genesfile]
 
   picard_collectgvcfcallingmetrics:
@@ -175,7 +199,7 @@ steps:
       final_gvcf_base_name: output_basename
       input_vcf: picard_mergevcfs/output
       reference_dict: reference_dict
-      wgs_evaluation_interval_list: wgs_evaluation_interval_list
+      wgs_evaluation_interval_list: picard_intervallisttools/output
     out: [output]
 
   samtools_coverttocram:
@@ -192,3 +216,4 @@ hints:
     value: c4.8xlarge;ebs-gp2;850
   - class: 'sbg:maxNumberOfParallelInstances'
     value: 4
+

@@ -1,15 +1,17 @@
 cwlVersion: v1.0
 class: Workflow
-id: wgs_alignment_fq_wf
+id: wgsp_alignment_fq_wf
 requirements:
   - class: ScatterFeatureRequirement
   - class: MultipleInputFeatureRequirement
   - class: SubworkflowFeatureRequirement
 
 inputs:
-  files_R1: File[]
-  files_R2: File[]
-  rgs: string[]
+  file_R1_l1: File
+  file_R2_l1: File
+  file_R1_l2: File
+  file_R2_l2: File
+  rg: string
   output_basename: string
   indexed_reference_fasta:
     type: File
@@ -41,21 +43,28 @@ outputs:
   annotated_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
 
 steps:
-  bwa_mem:
+  bwa_mem_l1:
     run: ../tools/bwa_mem_fq.cwl
     in:
-      file_R1: files_R1
-      file_R2: files_R2
-      rg: rgs
+      file_R1: file_R1_l1
+      file_R2: file_R2_l1
+      rg: rg
       ref: indexed_reference_fasta
-    scatter: [file_R1, file_R2, rg]
-    scatterMethod: dotproduct
+    out: [output]
+
+  bwa_mem_l2:
+    run: ../tools/bwa_mem_fq.cwl
+    in:
+      file_R1: file_R1_l2
+      file_R2: file_R2_l2
+      rg: rg
+      ref: indexed_reference_fasta
     out: [output]
 
   sambamba_merge:
     run: ../tools/sambamba_merge_one.cwl
     in:
-      bams: bwa_mem/output
+      bams: [bwa_mem_l1/output, bwa_mem_l2/output]
       base_file_name: output_basename
     out: [merged_bam]
 

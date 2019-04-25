@@ -2,27 +2,53 @@
   "files_R1": [
     {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R1_001.fastq.gz"
+      "location": "inputs/13179_S1_L001_R1_001.fastq.gz"
     }
   ],
   "files_R2": [
     {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R2_001.fastq.gz"
+      "location": "inputs/13179_S1_L001_R1_001.fastq.gz"
     }
   ],
   "file_R1": {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R1_001.fastq.gz"
+      "location": "inputs/13179_S1_L001_R1_001.fastq.gz"
   },
   "file_R2": {
       "class": "File",
-      "location": "inputs/11180_S12_L008_R2_001.fastq.gz"
+      "location": "inputs/13179_S1_L001_R1_001.fastq.gz"
+  },
+  "file_R1_l1": {
+    "class": "File",
+    "location": "inputs/13179_S1_L001_R1_001.fastq.gz"
+  },
+  "file_R2_l1": {
+    "class": "File",
+    "location": "inputs/13179_S1_L001_R2_001.fastq.gz"
+  },
+  "file_R1_l2": {
+    "class": "File",
+    "location": "inputs/13179_S1_L002_R1_001.fastq.gz"
+  },
+  "file_R2_l2": {
+    "class": "File",
+    "location": "inputs/13179_S1_L002_R2_001.fastq.gz"
   },
   "rgs": [
-    "@RG\\tID:11180\\tSM:11180\\tPL:ILLUMINA"
+    "@RG\\tID:13179\\tSM:13179\\tPL:ILLUMINA"
   ],
-  "rg" : "@RG\\tID:11180\\tSM:11180\\tPL:ILLUMINA",
+  "files_bams": [
+    {
+      "class": "File",
+      "location": "wgs/11180_S12_L008_R1_001.fastq.unsorted.bam"
+    },
+    {
+      "class": "File",
+      "location": "wgs/11180_S12_L008_R2_001.fastq.unsorted.bam"
+    }
+  ],
+  "rg" : "@RG\\tID:13179\\tSM:13179\\tPL:ILLUMINA",
   "indexed_reference_fasta": {
     "class": "File",
     "location": "inputs/Homo_sapiens_assembly38.fasta"
@@ -85,7 +111,8 @@
     "class": "File",
     "location": "inputs/Homo_sapiens_assembly38.dbsnp138.vcf"
   },
-  "output_basename" : "11180_S12_L008",
+  "output_basename" : "13179_S1_l0102",
+  "output_dir" : "../../wgs",
   "genome": "hg38",
   "intervals_bed": {
     "class": "File",
@@ -94,5 +121,9 @@
   "interval_list": {
     "class": "File",
     "location": "inputs/wgs_calling_regions.hg38.interval_list"
+  },
+  "sorted_bam": {
+    "class": "File",
+    "location": "inputs/13179_S1_L0102.aligned.duplicates_marked.sorted.bam"
   }
 }

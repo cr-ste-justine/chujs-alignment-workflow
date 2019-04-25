@@ -1,5 +1,6 @@
 #!/usr/bin/env cwl-runner
 cwlVersion: v1.0
+id: fastqcBAM
 class: CommandLineTool
 
 requirements:
@@ -7,16 +8,12 @@ requirements:
     dockerPull: chusj/fastqc
 
 inputs:
-  file_R1:
-    type: File[]
+  bam:
+    type: File
     inputBinding:
       position: 1
-  file_R2:
-    type: File[]
-    inputBinding:
-      position: 2
 
-baseCommand: [/FastQC/fastqc, --outdir, ., --extract]
+baseCommand: [/FastQC/fastqc, --outdir, ., -f, bam]
 outputs:
   zippedFiles:
     type: File[]
