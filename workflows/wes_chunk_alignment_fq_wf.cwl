@@ -37,8 +37,8 @@ outputs:
   bqsr_report: {type: File, outputSource: gatk_gatherbqsrreports/output}
   gvcf_calling_metrics: {type: 'File[]', outputSource: picard_collectgvcfcallingmetrics/output}
   aggregation_metrics: {type: 'File[]', outputSource: picard_collectaggregationmetrics/output}
-#  fastqc_reports: {type: 'File[]', outputSource: fastqc/zippedFiles}
-#  wes_metrics: {type: File, outputSource: picard_collecthsmetrics/output}
+  fastqc_reports: {type: 'File[]', outputSource: fastqc/zippedFiles}
+  #  wes_metrics: {type: File, outputSource: picard_collecthsmetrics/output}
   annotated_g_vcf: {type: File, outputSource: snpeff_g_vcf/outfile}
 
 steps:
@@ -73,14 +73,14 @@ steps:
       ref_dict: reference_dict
     out: [sequence_intervals, sequence_intervals_with_unmapped]
 
-#  fastqc:
-#    run: ../tools/fastqc.cwl
-#    in:
-#      file_R1: files_R1
-#      file_R2: files_R2
-#    scatter: [file_R1, file_R2]
-#    scatterMethod: dotproduct
-#    out: [zippedFiles, report]
+  fastqc:
+    run: ../tools/fastqc.cwl
+    in:
+      file_R1: files_R1
+      file_R2: files_R2
+    scatter: [file_R1, file_R2]
+    scatterMethod: dotproduct
+    out: [zippedFiles, report]
 
   picard_bedtointervallist:
     run: ../tools/picard_bedToIntervallist.cwl

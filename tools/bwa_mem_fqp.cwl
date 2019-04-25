@@ -1,6 +1,6 @@
 class: CommandLineTool
 cwlVersion: v1.0
-id: bwa_mem_fq
+id: bwa_mem_fqp
 requirements:
   - class: ShellCommandRequirement
   - class: ResourceRequirement

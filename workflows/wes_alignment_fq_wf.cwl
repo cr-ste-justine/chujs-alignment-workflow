@@ -9,10 +9,7 @@ requirements:
 inputs:
   files_R1: File[]
   files_R2: File[]
-#  file_R1: File
-#  file_R2: File
   rgs: string[]
-#  rg: string
   output_basename: string
   indexed_reference_fasta:
     type: File
